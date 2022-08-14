@@ -23,26 +23,48 @@ function newNonPlayableCharacter(x, y) {
 
     setInterval(moveCharacter, 1)
 
-    function walkEast() {
+    function walkEast(time, callback) {
         direction = 'east'
         element.src = `./assets/red-character/east.gif`
+        setTimeout(() => {
+            stop()
+            if(callback){
+                callback()
+            }
+        }, time)
     }
+    
 
-    function walkNorth() {
+    function walkNorth(time, callback) {
         direction = 'north'
-        element.src = `./assets/red-character/north.gif`
-    }
-
-    function walkWest() {
-        direction = 'west'
-        element.src = `./assets/red-character/west.gif`
-    }
-
-    function walkSouth() {
-        direction = 'south'
-        element.src = `./assets/red-character/south.gif`
-    }
-
+        element.src = `./assets/red-character/east.gif`
+        setTimeout(() => {
+            stop()
+            if(callback){
+                callback()
+            }
+        }, time)
+        }
+        function walkWest(time, callback) {
+            direction = 'west'
+            element.src = `./assets/red-character/east.gif`
+            setTimeout(() => {
+                stop()
+                if(callback){
+                    callback()
+                }
+            }, time)
+        }
+        function walkSouth(time, callback) {
+            direction = 'south'
+            element.src = `./assets/red-character/east.gif`
+            setTimeout(() => {
+                stop()
+                if(callback){
+                    callback()
+                }
+            }, time)
+        }
     function stop() {
         direction = null
         element.src = `./assets/red-character/static.gif`
